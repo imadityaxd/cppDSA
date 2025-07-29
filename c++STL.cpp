@@ -462,7 +462,32 @@ void explainExtra(){
     for(int i:v){
         cout<<i<<" ";
     }
-    
+    ///reverse a vector
+    vector <int>v1={1,2,3,4,5};
+    reverse(v1.begin(),v1.end());
+    cout<<endl<<"reversed: ";
+    for(auto i: v1){
+        cout<<i<< " ";
+    }
+    cout<<endl;
+    //reverse only a few elements 
+    reverse(v1.begin()+1, v1.begin() +3);
+    cout<<endl<<"reversed only few: ";
+    for(auto i: v1){
+        cout<<i<< " ";
+    }
+    cout<<endl;
+    //next permutation
+    string s = "abc";
+    next_permutation(s.begin(), s.end());
+    cout<<s<<endl;
+    prev_permutation(s.begin(),s.end());
+    cout<<s<<endl;
+    //max and min elements
+    cout<<*(max_element(v1.begin(), v1.end()))<<endl;
+    cout<<*(min_element(v1.begin(), v1.end()))<<endl;
+    //binarySearch
+    cout<<binary_search(v1.begin(),v1.end(), 2)<<endl;
 } 
 
 
