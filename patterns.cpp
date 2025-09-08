@@ -304,6 +304,6 @@ int main(){
     cout<<"Enter a number: ";
     cin >> num;
   
-    pattern17(num);
+    pattern9(num);
     return 0;
 }

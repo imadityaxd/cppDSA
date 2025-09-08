@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Warriors Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; /* Prevents scrollbars from interfering with the slide view */
+        }
+        /* Basic slide setup */
+        .slide {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.6s ease-in-out;
+            opacity: 0;
+        }
+        .slide.active {
+            display: flex; /* Shown when active */
+            opacity: 1;
+        }
+        
+        /* Animation for content */
+        .slide .slide-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out 0.4s, transform 0.5s ease-out 0.4s;
+        }
+        .slide.active .slide-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom styles for the flow diagram */
+        .flow-arrow {
+            position: relative;
+            width: 2px;
+            height: 40px;
+            background-color: #9ca3af; /* gray-400 */
+            margin: 8px auto;
+        }
+        .flow-arrow::after {
+            content: '';
+            position: absolute;
+            left: -5px;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #9ca3af; /* gray-400 */
+        }
+        /* Style for slide numbers */
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.875rem;
+            color: #d1d5db; /* gray-300 */
+            background-color: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 99px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- SLIDES CONTAINER -->
+    <main id="slides-container" class="relative w-screen h-screen">
+
+        <!-- Slide 1: Title Slide -->
+        <div id="slide-1" class="slide active items-center justify-center p-8 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1504983375803-393e3b088535?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600);">
+            <div class="max-w-4xl slide-content">
+                <div class="flex items-center justify-center mb-4">
+                     <svg class="w-16 h-16 mr-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <h1 class="text-6xl md:text-8xl font-black tracking-tight text-white">Waste Warriors</h1>
+                </div>
+                <p class="mt-4 text-xl md:text-2xl font-light text-green-200">Gamifying Waste Management for a Sustainable Future</p>
+                <p class="mt-2 text-lg text-gray-300">Hackathon Pitch</p>
+            </div>
+            <div class="slide-number">1 / 9</div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div id="slide-2" class="slide items-center justify-center p-8 bg-gray-800">
+             <div class="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center slide-content">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-red-400 mb-8">The Problem: A Growing Crisis</h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <svg class="w-8 h-8 mr-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Overwhelmed Systems</h3>
+                                <p class="text-gray-300">Our cities face a massive waste crisis, and general awareness is low.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <svg class="w-8 h-8 mr-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.636 18.364a9 9 0 010-12.728m2.828 9.9a5 5 0 010-7.072"></path><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="scale(0.6) translate(8, 8)"></path><line x1="15" y1="9" x2="9" y2="15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line></svg>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Ineffective Outreach</h3>
+                                <p class="text-gray-300">Traditional awareness campaigns are failing to engage people meaningfully.</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                            <svg class="w-8 h-8 mr-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Lack of Tools</h3>
+                                <p class="text-gray-300">Communities, especially students, lack interactive tools to learn sustainable practices.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hidden md:block">
+                     <img src="https://images.unsplash.com/photo-1542341328-84464c2c8b87?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200" class="rounded-lg shadow-2xl object-cover h-full">
+                </div>
+            </div>
+            <div class="slide-number">2 / 9</div>
+        </div>
+
+        <!-- Slide 3: The Solution -->
+        <div id="slide-3" class="slide items-center justify-center p-8 bg-gray-900">
+             <div class="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center slide-content">
+                 <div class="hidden md:block">
+                     <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200" class="rounded-lg shadow-2xl">
+                 </div>
+                <div class="text-left">
+                    <h2 class="text-4xl md:text-5xl font-bold text-green-400 mb-4">Our Solution: Waste Warriors</h2>
+                    <p class="text-xl text-gray-300 mb-6">An interactive, gamified platform for waste management education.</p>
+                    <p class="text-lg text-gray-400">Players become "Waste Warriors" in a city simulation, managing recycling, composting, and awareness programs. The goal is to make sustainability fun, engaging, and rewarding!</p>
+                </div>
+            </div>
+            <div class="slide-number">3 / 9</div>
+        </div>
+        
+        <!-- Slide 4: How It Works (Flow Diagram) -->
+        <div id="slide-4" class="slide items-center justify-center p-8 bg-gray-800 flex-col">
+            <div class="slide-content w-full">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-10 text-center">From Player to Planet-Saver</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                    <!-- Step 1 -->
+                    <div class="bg-gray-700 p-4 rounded-lg shadow-lg w-48 h-36 flex flex-col justify-center transform hover:scale-105 transition-transform">
+                        <div class="text-4xl mb-2">👤</div>
+                        <h3 class="font-semibold">Player Signs Up</h3>
+                        <p class="text-xs text-gray-400">Becomes a Waste Warrior</p>
+                    </div>
+                    <div class="flow-arrow rotate-90 md:rotate-0"></div>
+                    <!-- Step 2 -->
+                     <div class="bg-gray-700 p-4 rounded-lg shadow-lg w-48 h-36 flex flex-col justify-center transform hover:scale-105 transition-transform">
+                        <div class="text-4xl mb-2">🏙️</div>
+                        <h3 class="font-semibold">Manages City</h3>
+                        <p class="text-xs text-gray-400">Makes eco-decisions</p>
+                    </div>
+                    <div class="flow-arrow rotate-90 md:rotate-0"></div>
+                    <!-- Step 3 -->
+                     <div class="bg-gray-700 p-4 rounded-lg shadow-lg w-48 h-36 flex flex-col justify-center transform hover:scale-105 transition-transform">
+                        <div class="text-4xl mb-2">🎮</div>
+                        <h3 class="font-semibold">Plays Mini-Games</h3>
+                        <p class="text-xs text-gray-400">Sorting, quizzes, etc.</p>
+                    </div>
+                    <div class="flow-arrow rotate-90 md:rotate-0"></div>
+                    <!-- Step 4 -->
+                     <div class="bg-gray-700 p-4 rounded-lg shadow-lg w-48 h-36 flex flex-col justify-center transform hover:scale-105 transition-transform">
+                        <div class="text-4xl mb-2">🏆</div>
+                        <h3 class="font-semibold">Climbs Leaderboard</h3>
+                        <p class="text-xs text-gray-400">Earns points & rewards</p>
+                    </div>
+                     <div class="flow-arrow rotate-90 md:rotate-0"></div>
+                    <!-- Step 5 -->
+                     <div class="bg-gray-700 p-4 rounded-lg shadow-lg w-48 h-36 flex flex-col justify-center transform hover:scale-105 transition-transform">
+                        <div class="text-4xl mb-2">🌎</div>
+                        <h3 class="font-semibold">Real-World Impact</h3>
+                        <p class="text-xs text-gray-400">Applies knowledge learned</p>
+                    </div>
+                </div>
+            </div>
+             <div class="slide-number">4 / 9</div>
+        </div>
+
+        <!-- Slide 5: Key Features -->
+        <div id="slide-5" class="slide items-center justify-center p-8 bg-gray-900 flex-col">
+            <div class="slide-content w-full">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-12 text-center">Key Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V3.75m-18 0h19.5M12 6.75v.007M12 12.75v.007M12 18.75v.007" /></svg>
+                        <h3 class="text-xl font-bold text-green-400 mb-2">City Simulation</h3>
+                        <p class="text-gray-400">Manage programs to see their impact.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" /></svg>
+                        <h3 class="text-xl font-bold text-green-400 mb-2">Engaging Mini-Games</h3>
+                        <p class="text-gray-400">Fun activities make learning stick.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a9.75 9.75 0 001.316-5.491 9.75 9.75 0 001.316-5.491h6.368a9.75 9.75 0 001.316 5.491 9.75 9.75 0 001.316 5.491M12 3.75V1.5" /></svg>
+                        <h3 class="text-xl font-bold text-green-400 mb-2">Leaderboards & Rewards</h3>
+                        <p class="text-gray-400">Drive friendly competition with eco-challenges.</p>
+                    </div>
+                    <!-- Feature 4 -->
+                     <div class="bg-gray-800 p-6 rounded-lg shadow-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311a13.96 13.96 0 01-3.75 0M12 12.75h.007v.008H12v-.008z" /></svg>
+                        <h3 class="text-xl font-bold text-green-400 mb-2">Educational Content</h3>
+                        <p class="text-gray-400">Get practical, real-world tips you can use.</p>
+                    </div>
+                     <!-- Feature 5 -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l15.482 0" /></svg>
+                        <h3 class="text-xl font-bold text-green-400 mb-2">Teacher/School Mode</h3>
+                        <p class="text-gray-400">A dedicated mode for classroom integration.</p>
+                    </div>
+                </div>
+            </div>
+             <div class="slide-number">5 / 9</div>
+        </div>
+
+        <!-- Slide 6: Powered by Gemini -->
+        <div id="slide-6" class="slide items-center justify-center p-8 bg-gray-800 flex-col">
+            <div class="slide-content w-full max-w-6xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
+                    ✨ Next-Gen Features <span class="text-purple-400">Powered by Gemini</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Feature 1: Eco-Vision -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="relative h-48 mb-6 flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1599280337036-4573fa525a17?q=80&w=1287&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-20">
+                            <svg class="w-20 h-20 text-purple-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.776 48.776 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-400 mb-2">Eco-Vision Scanner</h3>
+                        <p class="text-gray-300">Snap a photo of any waste item, and our AI generates creative upcycling and reuse ideas instantly, complete with instructions.</p>
+                    </div>
+                    <!-- Feature 2: Eco-Coach -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                         <div class="relative h-48 mb-6 flex items-center justify-center">
+                             <img src="https://images.unsplash.com/photo-1577563908411-5ab7ced106c8?q=80&w=1470&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-20">
+                             <svg class="w-20 h-20 text-purple-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.76 9.76 0 01-2.53-.388m-5.182-1.232a9.743 9.743 0 01-.388-2.53C3.75 7.444 7.78 3.75 12.333 3.75c1.13 0 2.212.234 3.213.658m5.441 2.89a9.75 9.75 0 01.658 3.213c0 .633-.075 1.25-.218 1.848m-5.225-8.332a9.761 9.761 0 01-1.848-.218C12.625 4.025 12 4.775 12 5.625v1.875c0 .633.25 1.21.658 1.639m-3.292-.876a9.75 9.75 0 011.639-.658c.85-.25 1.775-.25 2.625 0 .85.25 1.639.658 2.25 1.25" />
+                             </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-400 mb-2">Personalized Eco-Coach</h3>
+                        <p class="text-gray-300">Get hyper-local sustainability tips and answers to your eco-questions, adapted to your city's real-world programs.</p>
+                    </div>
+                </div>
+            </div>
+             <div class="slide-number">6 / 9</div>
+        </div>
+
+        <!-- Slide 7: Technology Stack -->
+        <div id="slide-7" class="slide items-center justify-center p-8 bg-gray-800 flex-col" style="background-image: linear-gradient(rgba(31, 41, 55, 0.95), rgba(31, 41, 55, 0.95)), url(https://images.unsplash.com/photo-1542831371-d531d36971e7?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600); background-size: cover; background-position: center;">
+            <div class="slide-content w-full max-w-4xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-12 text-center">Technology Stack</h2>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="bg-gray-900/70 backdrop-blur-sm p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-sky-400">Frontend</h3>
+                            <p class="text-gray-300">React + Tailwind CSS</p>
+                        </div>
+                        <div class="bg-gray-900/70 backdrop-blur-sm p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-green-400">Backend</h3>
+                            <p class="text-gray-300">Node.js + Express</p>
+                        </div>
+                         <div class="bg-gray-900/70 backdrop-blur-sm p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-emerald-400">Database</h3>
+                            <p class="text-gray-300">MongoDB</p>
+                        </div>
+                         <div class="bg-gray-900/70 backdrop-blur-sm p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-pink-400">Gamification</h3>
+                            <p class="text-gray-300">Phaser.js / Pixi.js</p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-900/70 backdrop-blur-sm p-6 rounded-lg text-center col-span-2">
+                        <h3 class="text-xl font-bold text-purple-400">Generative AI</h3>
+                        <p class="text-gray-300">Google Gemini API</p>
+                    </div>
+                     <div class="bg-gray-900/70 backdrop-blur-sm p-6 rounded-lg text-center col-span-2">
+                        <h3 class="text-xl font-bold text-orange-400">Hosting</h3>
+                        <p class="text-gray-300">Vercel / AWS</p>
+                    </div>
+                </div>
+            </div>
+             <div class="slide-number">7 / 9</div>
+        </div>
+        
+        <!-- Slide 8: Impact & Vision -->
+        <div id="slide-8" class="slide items-center justify-center p-8 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1542601904-4603d4a46082?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600);">
+            <div class="max-w-4xl text-center slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Impact & Vision</h2>
+                <p class="text-xl text-gray-200 mb-8">Make sustainability fun, engaging, and rewarding for everyone.</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-black bg-opacity-60 backdrop-blur-sm p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-green-300">Educate</h3>
+                        <p class="text-gray-300">Empower citizens with interactive gameplay.</p>
+                    </div>
+                    <div class="bg-black bg-opacity-60 backdrop-blur-sm p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-green-300">Engage</h3>
+                        <p class="text-gray-300">Build eco-conscious communities through gamified learning.</p>
+                    </div>
+                    <div class="bg-black bg-opacity-60 backdrop-blur-sm p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-green-300">Expand</h3>
+                        <p class="text-gray-300">Scale to modules on climate change, water, and energy.</p>
+                    </div>
+                </div>
+            </div>
+             <div class="slide-number">8 / 9</div>
+        </div>
+
+        <!-- Slide 9: Call to Action -->
+        <div id="slide-9" class="slide items-center justify-center p-8 text-center bg-gray-900">
+            <div class="max-w-4xl slide-content">
+                 <div class="flex items-center justify-center mb-4">
+                     <svg class="w-16 h-16 mr-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white">Join Us!</h1>
+                </div>
+                <p class="mt-4 text-xl md:text-2xl font-light text-green-200">Help us turn awareness into action.</p>
+                <button class="mt-8 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/50">Be a Waste Warrior Today</button>
+            </div>
+             <div class="slide-number">9 / 9</div>
+        </div>
+
+    </main>
+
+    <!-- NAVIGATION CONTROLS -->
+    <div class="fixed bottom-5 left-1/2 -translate-x-1/2 z-10 flex space-x-4">
+        <button id="prev-btn" class="bg-gray-700/80 backdrop-blur-sm hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+            &larr; Prev
+        </button>
+        <button id="next-btn" class="bg-green-500/90 backdrop-blur-sm hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+            Next &rarr;
+        </button>
+    </div>
+
+    <script>
+        // JavaScript for Slideshow functionality
+        let currentSlide = 1;
+        const totalSlides = 9;
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function showSlide(slideNumber) {
+            // Hide current slide
+            const currentSlideEl = document.getElementById(`slide-${currentSlide}`);
+            if (currentSlideEl) {
+                currentSlideEl.classList.remove('active');
+            }
+            
+            // Show new slide
+            const newSlideEl = document.getElementById(`slide-${slideNumber}`);
+            if (newSlideEl) {
+                newSlideEl.classList.add('active');
+            }
+            
+            currentSlide = slideNumber;
+            updateButtons();
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            }
+        });
+
+        // Initialize
+        showSlide(1);
+    </script>
+
+</body>
+</html>
+

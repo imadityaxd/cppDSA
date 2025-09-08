@@ -108,6 +108,7 @@ string removeSpaces(string str)
         }
         return result;
 } 
+
 int main(){
     // f();
     // name(0, 5);
