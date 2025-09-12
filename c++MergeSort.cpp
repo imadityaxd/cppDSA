@@ -34,6 +34,8 @@ void merge(vector<int> &arr, int low, int mid, int high) {
 
     // transfering all elements from temporary to arr //
     for (int i = low; i <= high; i++) {
+        cout<<"i "<<i;
+        cout<<" low "<<low<<endl;
         arr[i] = temp[i - low];
     }
 }
