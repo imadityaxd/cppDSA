@@ -37,6 +37,14 @@ void merge(vector<int> &arr, int low, int mid, int high) {
         cout<<"i "<<i;
         cout<<" low "<<low<<endl;
         arr[i] = temp[i - low];
+        /* temp is always zero-indexed.
+
+The subarray arr[low..high] may start anywhere in the original array.
+
+Therefore, we use the formula:
+arr[i]=temp[i−low]
+
+to correctly align temp’s index with the original array’s index.*/
     }
 }
 
