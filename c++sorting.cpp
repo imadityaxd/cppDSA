@@ -7,19 +7,32 @@ void bubbleSort(int arr[], int n){
     //arr[j] > arr[j+1]
     //swap(arr[j], arr[j+1])
     
-    for(int i = 0;i<n-1;i++){
-
-        if(arr[i]>arr[i+1]){
-            swap(arr[i],arr[i+1]);
-        }
+    for (int pass = 0; pass < n-1; pass++) {      // Outer loop
+        for (int i = 0; i < n-pass-1; i++) {      // Inner loop
+            if (arr[i] > arr[i+1]) {
+                swap(arr[i], arr[i+1]);
+            }
 
     }
+}
     //printing the sorted array
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
 }
 
+//recursive bubble sort
+void recBubble(int arr[],int n){
+    if(n==1){
+        return;
+    }
+    for(int i=0;i<n-1;i++){
+        if(arr[i]>arr[i+1]){
+            swap(arr[i],arr[i+1]);
+        }
+    }
+    recBubble(arr,n-1);
+}
 //selection sort 
 
 void selectionSort(int arr[], int n){
@@ -55,6 +68,19 @@ void insertionSort(int arr[], int n){
     }
 
 }
+//recursive insertion sort 
+void recInser(int arr[],int n,int i){
+    if(i==n){
+        return;
+    }
+    for(int j = i;j >0;j--){
+            if(arr[j]<arr[j-1])
+                swap(arr[j],arr[j-1]);
+                
+    }
+    recInser(arr,n,i+1);
+}
+
 int main(){
     int n =5;
     // cout<<"Enter size of array: ";
@@ -70,6 +96,11 @@ int main(){
     // cout<<endl<<"Sorted Array: ";
     //bubbleSort(arr, n);
     // selectionSort(arr,n);
-    insertionSort(arr,n);
+    //insertionSort(arr,n);
+    // recBubble(arr,n);
+    recInser(arr,n,0);
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" "; 
+    }
     return 0;
 }
