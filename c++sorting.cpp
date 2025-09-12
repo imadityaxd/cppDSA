@@ -42,7 +42,6 @@ void selectionSort(int arr[], int n){
             if(arr[min]>arr[j]){
                 min=j;
             } 
-        
         }
         swap(arr[min],arr[i]);
     }
@@ -51,6 +50,19 @@ void selectionSort(int arr[], int n){
         cout<<arr[i]<<" ";
     }
 
+}
+
+//recursive Selection Sort
+void recSele(int arr[],int n,int i){
+    if(i==n) return;
+    int min =i;
+    for(int j =min+1;j<n;j++){
+        if(arr[min]>arr[j]){
+            min =j;
+        }
+    }
+    swap(arr[min],arr[i]);
+    recSele(arr,n,i+1);
 }
 //Insertion Sort
 void insertionSort(int arr[], int n){
@@ -82,10 +94,10 @@ void recInser(int arr[],int n,int i){
 }
 
 int main(){
-    int n =5;
+    int n =7;
     // cout<<"Enter size of array: ";
     // cin>>n;
-    int arr[n] = {2,1,5,4,3};
+    int arr[n] = {10,2,1,5,4,3,9};
     // cout<<"Enter array elements: ";
     // for(int i =0;i<n;i++){
     //     cin>>arr[i];
@@ -98,7 +110,8 @@ int main(){
     // selectionSort(arr,n);
     //insertionSort(arr,n);
     // recBubble(arr,n);
-    recInser(arr,n,0);
+    // recInser(arr,n,0);
+    recSele(arr,n,0);
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" "; 
     }
