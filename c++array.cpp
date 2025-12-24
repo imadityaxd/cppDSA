@@ -88,10 +88,31 @@ void lrotateArr2(int arr[], int n){
         cout<<arr[i]<<" ";
     }
 }
+
+//rotate left array by k-places 
+//1- reverse array function 
+void reversePart(int arr[],int start,int end){
+        while(start<end){
+            swap(arr[start],arr[end]);
+            start++;
+            end--;
+        }
+    }
+//2- reverse array functions use - rotate part
+void lrotate3(int arr[], int n, int k){
+    k = k%n;
+    reversePart(arr,0,k-1); // reverse array only till k 
+    reversePart(arr,k,n-1); // reverse array from k to last element 
+    reversePart(arr,0,n-1); //reverse the whole array finally 
+
+}
+
 int main(){
     int arr[] = {1,3,5,8,8,9,11,11,10,2};
     int n= sizeof(arr)/sizeof(arr[0]);
-    lrotateArr2(arr,n);
-
+    lrotate3(arr,n,3);
+    for(auto x:arr){
+        cout<<x<<" ";
+    }
     return 0;
 }
