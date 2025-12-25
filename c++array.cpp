@@ -107,12 +107,83 @@ void lrotate3(int arr[], int n, int k){
 
 }
 
-int main(){
-    int arr[] = {1,3,5,8,8,9,11,11,10,2};
-    int n= sizeof(arr)/sizeof(arr[0]);
-    lrotate3(arr,n,3);
-    for(auto x:arr){
+//rotate array to right by k places 
+//reverse function 
+void reverse3(int arr[], int start , int end){
+    while(start<end){
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+}
+//rotate function 
+void rotateRight(int arr[],int n ,int k){
+    k = k %n;
+    reverse3(arr,0,n-1-k);
+    reverse3(arr,n-k,n-1);
+    reverse3(arr,0,n-1);
+}
+
+//move zeroes to end 
+void moveZeroes1(int arr[], int n){
+    //brute force approach 
+    //shift all non zero elements in a temporary array 
+    vector<int>v1;
+    for(int i = 0; i<n;i++){
+        if(arr[i]!=0){
+            v1.push_back(arr[i]);
+        }
+    }
+    for(auto x:v1){
+        cout<< x<< " ";  
+    }
+    //now push all zeroes into the vector 
+    for(int i = 0; i<n;i++){
+        if(arr[i] == 0){
+            v1.push_back(arr[i]);
+        }
+    }
+    cout<<endl;
+    for(auto x: v1){
         cout<<x<<" ";
     }
+}
+
+void moveZeroes2(int arr[], int n){
+    //optimal solution 
+    int j;
+    for(int i = 0; i<n;i++){
+        if(arr[i] == 0) {
+            j = i;
+            break;
+        }
+    }
+    for(int i = j+1; i<n;i++){
+        if(arr[i] != 0){
+            swap(arr[i],arr[j]);
+            j++;
+        }
+    }
+
+    
+}
+
+//linear search in an array 
+bool linearSearch(int arr[], int n, int k){
+    for(int i = 0; i<n;i++){
+        if(arr[i] == k){
+            cout<<k<<" is at this index "<<i<<endl;
+            return true;
+        }
+
+    }
+    return false;
+}
+
+int main(){
+    int arr[] = {1,2,3,0,4,0,5,6,7};
+    int n= sizeof(arr)/sizeof(arr[0]);
+    cout<<linearSearch(arr,n, 0);
+    
     return 0;
 }
