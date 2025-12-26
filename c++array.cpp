@@ -180,10 +180,64 @@ bool linearSearch(int arr[], int n, int k){
     return false;
 }
 
+//union of two sorted arrays
+void unionSorted(int arr[], int arr2[], int n, int m){
+    set<int>s;
+    for(int i =0;i<n;i++){
+        s.insert(arr[i]);
+    }
+    for(int j=0;j<m;j++){
+        s.insert(arr2[j]);
+    }
+    for(auto x:s){
+        cout<<x<<" ";
+    }
+}
+//two pointer approach for union of two sorted arrays
+void unionSorted2(int arr[], int arr2[], int n, int m){
+    //create an empty vector to store elements 
+    //a while loop that runs til i<n and j<m 
+    // it checks if a[i] is less than a2[j] so push a[i] else if a2[j] < a[i] then push a2[j]
+    //keeps doing it until every element from both the arrays are pushed into the vector without any duplicate elements 
+    vector<int>v1;
+    int i=0,j=0;
+    while(i<n && j<m){
+        if(arr[i]< arr2[j]){
+            if(v1.size() ==0 || v1.back()!=arr[i]){
+                v1.push_back(arr[i]);
+            }
+            i++;
+        }
+        else{
+            if(v1.size() ==0 || v1.back()!=arr2[j]){
+                v1.push_back(arr2[j]);
+            }
+            j++;
+        }
+    }
+        while(i<n){
+            if(v1.size() ==0 || v1.back()!=arr[i]){
+                v1.push_back(arr[i]);
+            }
+            i++;
+        }
+        while(j<m){
+            if(v1.size() ==0 || v1.back()!=arr2[j]){
+                v1.push_back(arr2[j]);
+            }
+            j++;
+        }
+        for(auto x:v1){
+            cout<<x<<" ";
+        }
+}
 int main(){
-    int arr[] = {1,2,3,0,4,0,5,6,7};
-    int n= sizeof(arr)/sizeof(arr[0]);
-    cout<<linearSearch(arr,n, 0);
     
+    int arr[] = {1,2,2,3,4,4,5};
+    int arr2[] = {2,3,5,7,9,11};
+    int n= sizeof(arr)/sizeof(arr[0]);
+    int m = sizeof(arr2)/sizeof(arr2[0]);
+    
+    unionSorted2(arr,arr2, n,m);
     return 0;
 }
